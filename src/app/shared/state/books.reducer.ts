@@ -81,7 +81,7 @@ export const selectActiveBook_unoptimized = (state: State) => {
   const activeBookId = selectActiveBookId(state);
 
   // Computation
-  return books.find((book) => book.id === activeBookId);
+  return books.find((book) => book.id === activeBookId) || null;
 };
 
 // Optimized
@@ -91,7 +91,7 @@ export const selectActiveBook = createSelector(
   selectActiveBookId,
   // Projector function
   (books, activeBookId) => {
-    return books.find((book) => book.id === activeBookId);
+    return books.find((book) => book.id === activeBookId) || null;
   }
 );
 
